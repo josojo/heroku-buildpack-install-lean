@@ -3,6 +3,13 @@
 
    echo "Starting REPL setup..."
 
+   # Check if git is installed
+	if ! command -v git &> /dev/null
+	then
+	    echo "Git could not be found. Please ensure Git is installed."
+	    exit 1
+	fi
+
    WORK_DIR="$HOME/repl_setup"
    mkdir -p "$WORK_DIR"
    cd "$WORK_DIR"
@@ -20,8 +27,7 @@
 
    # Clone REPL repository
    echo "Cloning REPL repository..."
-   export GIT_EXEC_PATH=/app/.apt/usr/lib/git-core
-   /app/.apt/usr/bin/git clone https://github.com/leanprover-community/repl.git
+   git clone https://github.com/leanprover-community/repl.git
    cd repl
 
    # Install Lean version as specified in lean-toolchain

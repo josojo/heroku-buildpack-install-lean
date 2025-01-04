@@ -45,12 +45,13 @@
 
 
    # Add a marker file to indicate successful installation
-   touch "$PWD/repl/.keep"
-   echo "Listing all files in REPL directory $PWD/repl:"
-   ls -al "$PWD/repl"
+   touch "$WORKDIR/.keep"
+   echo "Listing all files in REPL directory $WORKDIR:"
+   ls -al "$WORKDIR"
 
    # copy all files into a new non temp directory
-   cp -r $PWD/repl /usr/test/repl
+   mkdir -p /usr/test/repl
+   cp -r $WORKDIR/* /usr/test/repl
    
 
    echo "REPL setup completed successfully"

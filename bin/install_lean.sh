@@ -43,7 +43,10 @@
 
    echo "Copying built files to home directory..."
    mkdir -p "/app/repl"
+   ls -al /app/repl
    cp -r "$WORK_DIR/repl"/* "/app/repl/"
+   ls -al /app/repl
+
 
    # Add a marker file to indicate successful installation
    touch "/app/repl/.installation_complete"

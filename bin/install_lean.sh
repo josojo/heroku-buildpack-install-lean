@@ -10,7 +10,7 @@
 	    exit 1
 	fi
 
-   WORK_DIR="$HOME/repl_setup"
+   WORK_DIR="$HOME/repl"
    mkdir -p "$WORK_DIR"
    cd "$WORK_DIR"
 
@@ -42,10 +42,10 @@
    lake exe cache get > /dev/null
 
    echo "Copying built files to home directory..."
-   mkdir -p "$HOME/repl"
-   cp -r "$WORK_DIR/repl"/* "$HOME/repl/"
+   mkdir -p "/app/repl"
+   cp -r "$WORK_DIR/repl"/* "/app/repl/"
 
    # Add a marker file to indicate successful installation
-   touch "$HOME/repl/.installation_complete"
+   touch "/app/repl/.installation_complete"
 
    echo "REPL setup completed successfully"

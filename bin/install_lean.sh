@@ -10,7 +10,9 @@
 	    exit 1
 	fi
 
-   WORK_DIR="$HOME/repl"
+
+   PWD=$(pwd)
+   WORK_DIR="$PWD/repl"
    mkdir -p "$WORK_DIR"
    cd "$WORK_DIR"
 
@@ -41,16 +43,12 @@
    echo "Downloading Mathlib..."
    lake exe cache get > /dev/null
 
-   echo "Copying built files to home directory..."
-   mkdir -p "/app/repl"
-   ls -al /app/repl
-   cp -r "$WORK_DIR/repl"/* "/app/repl/"
-   ls -al /app/repl
-
 
    # Add a marker file to indicate successful installation
    touch "/app/repl/.installation_complete"
-   touch "/app/repl/.keep"
-   ls -al /app/repl
+   touch "$PWD/repl/.keep"
+   echo "Listing all files in REPL directory $PWD/repl:"
+   ls -al "$PWD/repl"
+   
 
    echo "REPL setup completed successfully"

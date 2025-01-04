@@ -50,5 +50,7 @@
 
    # Add a marker file to indicate successful installation
    touch "/app/repl/.installation_complete"
+   touch "/app/repl/.keep"
+   ls -al /app/repl
 
    echo "REPL setup completed successfully"
